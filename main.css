@@ -20,7 +20,7 @@ nav {
   background-color: white;
   text-decoration: none;
   padding: 5px;
-  margin-bottom: 50px;
+
 
 }
 
@@ -57,39 +57,46 @@ ul {
   justify-content: center;
 }
 
-.hero a {
+.hero  {
   width: fit-content;
-  border: solid 2px rgb(208, 208, 208);
-  display: block;
-  max-width: 700px;
+  border-bottom: solid 2px rgb(208, 208, 208);
+  display: flex;
+  max-width: 100%;
   background: #fff;
-  padding: 40px;
-  border-radius: 12px;
+  padding: 60px;
   text-decoration: none;
   color: inherit;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   margin-bottom: 100px;
-}
-
-.hero img {
   width: 100%;
-  height: auto;
-  height: 200px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  background: #ddd;
+  flex-direction: row;
+  gap: 5em;
+  padding-left: 8em;
 }
 
-.hero h2 {
-  margin: 0 0 10px;
-  font-size: 24px;
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  max-width: 45em;
 }
 
-.hero p:nth-of-type(2),
-.hero p:nth-of-type(3) {
-  font-size: 14px;
-  color: #777;
+#hero-img {
+  border-radius: 5px;
+  margin-top: 3em;
 }
+
+#hero-but {
+  width: 11em;
+  padding: 0.9em;
+  margin-top: 2em;
+  background-color: #1A1A1A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.hero h1 {font-size: 3em;}
 
 article {
   width: fit-content;
@@ -128,13 +135,14 @@ article p:nth-of-type(3) {
 
 #h2 {
   margin-left: 4.5em;
+  margin-bottom: 1em;
 }
 
 .article-section {
-  display: flex;
-  gap: 2em;
-  align-items: flex-start;
   margin: 0 6em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
 }
 
 .ai {
