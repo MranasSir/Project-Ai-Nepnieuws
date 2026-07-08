@@ -1,4 +1,3 @@
-
 const quiz = [
     {
         vraag: "Wat is nepnieuws?",
@@ -73,26 +72,18 @@ function updateStats() {
 }
 
 function toonVraag() {
-
     gekozen = false;
-
     vraag.textContent = quiz[huidigeVraag].vraag;
-
     progress.style.width = ((huidigeVraag + 1) / quiz.length) * 100 + "%";
-
     updateStats();
 
     opties.forEach((optie, index) => {
-
         optie.textContent = quiz[huidigeVraag].antwoorden[index];
-
         optie.style.background = "white";
         optie.style.pointerEvents = "auto";
 
         optie.onclick = function () {
-
             if (gekozen) return;
-
             gekozen = true;
 
             if (index === quiz[huidigeVraag].goed) {
@@ -109,7 +100,6 @@ function toonVraag() {
 }
 
 next.onclick = function () {
-
     if (!gekozen) {
         alert("Kies eerst een antwoord.");
         return;
@@ -118,17 +108,13 @@ next.onclick = function () {
     huidigeVraag++;
 
     if (huidigeVraag < quiz.length) {
-
         toonVraag();
-
     } else {
-
         answered.textContent = quiz.length;
         remaining.textContent = 0;
         progress.style.width = "100%";
 
         let bericht = "";
-
         if (score === 5) {
             bericht = "Perfect! Jij bent een expert in het herkennen van nepnieuws.";
         } else if (score >= 3) {
@@ -137,11 +123,11 @@ next.onclick = function () {
             bericht = "Blijf oefenen met het herkennen van nepnieuws.";
         }
 
-        document.querySelector(".card:nth-of-type(3)").innerHTML = `
+        document.getElementById("quiz-card-container").innerHTML = `
             <h2>🎉 Quiz afgerond!</h2>
             <h3>Je score: ${score} van ${quiz.length}</h3>
             <p>${bericht}</p>
-            <button onclick="location.reload()">Opnieuw spelen</button>
+            <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer; margin-top: 15px;">Opnieuw spelen</button>
         `;
 
         document.querySelector(".buttons").style.display = "none";
@@ -149,11 +135,11 @@ next.onclick = function () {
 };
 
 prev.onclick = function () {
-
     if (huidigeVraag > 0) {
         huidigeVraag--;
         toonVraag();
     }
 };
 
+// Start de quiz direct
 toonVraag();
